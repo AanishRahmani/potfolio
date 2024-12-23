@@ -67,6 +67,13 @@ flutter:
     - assets/myself.png
     - assets/ml.png
     - assets/flutter.png
+    - assets/flutter1.png
+    - assets/firebase.png
+    - assets/flask.png
+    - assets/git.png
+    - assets/python.png
+    - assets/go.png
+    
     # - assets/packages/theme_button/assets/animation.json
   #   - images/a_dot_ham.jpeg
 
