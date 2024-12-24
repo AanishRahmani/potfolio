@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:person_info_site/pages/homePage/upper_container.dart';
+import 'package:person_info_site/tools/upper_container.dart';
 import 'package:person_info_site/tools/carousel.dart';
 
 class StackGridView extends StatelessWidget {
@@ -72,11 +72,14 @@ class _HoverableStackItemState extends State<HoverableStackItem> {
         height: 120, // Increased size of the box
         width: 120, // Increased size of the box
         child: Center(
-          child: Image.asset(
-            widget.iconPath,
-            height: 60, // Increased size of the icon
-            width: 60, // Increased size of the icon
-            fit: BoxFit.contain,
+          child: Transform.scale(
+            scale: isHovered ? 1.2 : 1.0, // Zoom effect on hover
+            child: Image.asset(
+              widget.iconPath,
+              height: 60, // Increased size of the icon
+              width: 60, // Increased size of the icon
+              fit: BoxFit.contain,
+            ),
           ),
         ),
       ),
@@ -99,7 +102,7 @@ class AboutMe extends StatelessWidget {
     final List<Map<String, String>> stackItems = [
       {'title': 'Flutter', 'icon': 'assets/flutter1.png'},
       {'title': 'Python', 'icon': 'assets/python.png'},
-      {'title': 'Dart', 'icon': 'assets/dart.png'},
+      {'title': 'Dart', 'icon': 'assets/python.png'},
       {'title': 'Firebase', 'icon': 'assets/firebase.png'},
       {'title': 'Git', 'icon': 'assets/git.png'},
       {'title': 'HTML/CSS', 'icon': 'assets/flask.png'},
@@ -113,12 +116,12 @@ class AboutMe extends StatelessWidget {
         child: Column(
           children: [
             // Upper Container
-            Container(
+            SizedBox(
               width: double.infinity,
-              padding: const EdgeInsets.all(16.0),
+              // padding: const EdgeInsets.all(16.0),
               child: UpperContainer(
                 onThemeToggle: onThemeToggle ?? (_) {},
-                isDarkMode: isDarkMode ?? false,
+                isDarkMode: isDarkMode ?? true,
                 heading: 'ABOUT ME',
               ),
             ),
