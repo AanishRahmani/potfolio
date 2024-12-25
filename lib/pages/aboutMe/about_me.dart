@@ -1,7 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:person_info_site/tools/upper_container.dart';
-import 'package:person_info_site/tools/carousel.dart';
+import 'package:person_info_site/pages/aboutMe/big_screen_about_me.dart';
+import 'package:person_info_site/pages/aboutMe/small_screen_about_me.dart';
 
+//actual layout(responsive)
+class AboutMe extends StatelessWidget {
+  const AboutMe({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    // Define the layout for large screens
+    Widget largeScreen = const BigScreenAboutMe();
+    // Define the layout for small screens
+    Widget smallScreen = const SmallScreenAboutMe();
+
+    return MediaQuery.of(context).size.width >= 850 ? largeScreen : smallScreen;
+  }
+}
+
+// StackGridView widget to display the list of tech stack items
 class StackGridView extends StatelessWidget {
   final List<Map<String, String>> stackItems;
 
@@ -12,24 +30,39 @@ class StackGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      // padding: const EdgeInsets.all(16.0),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3, // Number of columns
-        crossAxisSpacing: 16.0, // Spacing between columns
-        mainAxisSpacing: 16.0, // Spacing between rows
-        childAspectRatio: 1.0, // Adjust the aspect ratio of each grid item
+    //aspect ratio dynamic calculation
+    double aspectRatio = 1.0; // Default
+    double horizontalPadding = 16.0; // Default
+    if (MediaQuery.of(context).size.width < 600) {
+      aspectRatio = 1.5; // For small screens
+      horizontalPadding = 32.0;
+    } else if (MediaQuery.of(context).size.width < 900) {
+      aspectRatio = 1.2; // For medium screens
+      horizontalPadding = 24.0;
+    }
+
+    return Padding(
+      padding: EdgeInsets.symmetric(
+          horizontal: horizontalPadding), // Add horizontal padding(dynamic)
+      child: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: MediaQuery.of(context).size.width < 750 ? 2 : 3,
+          crossAxisSpacing: 16.0,
+          mainAxisSpacing: 16.0,
+          childAspectRatio: aspectRatio, // adjust the aspect ratio (dynamic)
+        ),
+        itemCount: stackItems.length,
+        itemBuilder: (context, index) {
+          return HoverableStackItem(
+            iconPath: stackItems[index]['icon']!,
+          );
+        },
       ),
-      itemCount: stackItems.length,
-      itemBuilder: (context, index) {
-        return HoverableStackItem(
-          iconPath: stackItems[index]['icon']!,
-        );
-      },
     );
   }
 }
 
+// HoverableStackItem widget to display each tech stack item
 class HoverableStackItem extends StatefulWidget {
   final String iconPath;
 
@@ -39,6 +72,7 @@ class HoverableStackItem extends StatefulWidget {
   });
 
   @override
+  // ignore: library_private_types_in_public_api
   _HoverableStackItemState createState() => _HoverableStackItemState();
 }
 
@@ -62,195 +96,21 @@ class _HoverableStackItemState extends State<HoverableStackItem> {
               ? [
                   BoxShadow(
                     color: Colors.deepPurple.withOpacity(0.3),
-                    blurRadius: 10,
-                    offset: const Offset(0, 5),
-                  )
+                    blurRadius: 8,
+                    offset: const Offset(0, 4),
+                  ),
                 ]
               : [],
         ),
-        padding: const EdgeInsets.all(16),
-        height: 120, // Increased size of the box
-        width: 120, // Increased size of the box
-        child: Center(
-          child: Transform.scale(
-            scale: isHovered ? 1.2 : 1.0, // Zoom effect on hover
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
             child: Image.asset(
               widget.iconPath,
-              height: 60, // Increased size of the icon
-              width: 60, // Increased size of the icon
-              fit: BoxFit.contain,
+              width: 50,
+              height: 50,
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class AboutMe extends StatelessWidget {
-  final Function(bool)? onThemeToggle;
-  final bool? isDarkMode;
-
-  const AboutMe({
-    super.key,
-    this.onThemeToggle,
-    this.isDarkMode,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final List<Map<String, String>> stackItems = [
-      {'title': 'Flutter', 'icon': 'assets/flutter1.png'},
-      {'title': 'Python', 'icon': 'assets/python.png'},
-      {'title': 'Dart', 'icon': 'assets/python.png'},
-      {'title': 'Firebase', 'icon': 'assets/firebase.png'},
-      {'title': 'Git', 'icon': 'assets/git.png'},
-      {'title': 'HTML/CSS', 'icon': 'assets/flask.png'},
-      {'title': 'Java', 'icon': 'assets/git.png'},
-      {'title': 'C++', 'icon': 'assets/flask.png'},
-      {'title': 'SQL', 'icon': 'assets/firebase.png'},
-    ];
-
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            // Upper Container
-            SizedBox(
-              width: double.infinity,
-              // padding: const EdgeInsets.all(16.0),
-              child: UpperContainer(
-                onThemeToggle: onThemeToggle ?? (_) {},
-                isDarkMode: isDarkMode ?? true,
-                heading: 'ABOUT ME',
-              ),
-            ),
-
-            // Main Content
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Left Column
-                  Expanded(
-                    flex: 6,
-                    child: Column(
-                      children: [
-                        // Image Carousel
-                        const SizedBox(
-                          height: 300,
-                          child: ImageCarousel(),
-                        ),
-                        const SizedBox(height: 20),
-                        // Education details
-                        Column(
-                          children: [
-                            const Text(
-                              'EDUCATION',
-                              style: TextStyle(
-                                  color: Colors.deepPurple,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            buildRichText(
-                              context,
-                              title: 'Bachelor of Technology IT Engg\n',
-                              subtitle:
-                                  'Maharaja Agrasen Institute of Technology\n',
-                              details: '2023-2026',
-                            ),
-                            const SizedBox(height: 20),
-                            buildRichText(
-                              context,
-                              title: 'Diploma in Automobile Engg\n',
-                              subtitle: 'Pusa Institute of Technology\n',
-                              details: '2020-2023',
-                            ),
-                            const SizedBox(height: 20),
-                            buildRichText(
-                              context,
-                              title: 'Schooling\n',
-                              subtitle: 'Kamal Model Sr. Sec. School\n',
-                              details: '2008-2019',
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  const SizedBox(width: 16), // Spacing between columns
-
-                  // Right Column
-                  Expanded(
-                    flex: 4,
-                    child: Column(
-                      children: [
-                        // Tech Stack Title
-                        Text(
-                          'MY TECH STACK',
-                          style:
-                              Theme.of(context).textTheme.titleLarge?.copyWith(
-                                    color: Colors.deepPurple,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                        ),
-                        const SizedBox(height: 16),
-                        // Tech Stack Grid
-                        SizedBox(
-                          height:
-                              1000, // Make sure it's large enough to show all items
-                          child: StackGridView(stackItems: stackItems),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  // Function to build RichText with a centered layout and margin
-  Widget buildRichText(
-    BuildContext context, {
-    required String title,
-    required String subtitle,
-    required String details,
-  }) {
-    return Container(
-      margin: const EdgeInsets.all(8),
-      padding: const EdgeInsets.all(8),
-      child: RichText(
-        textAlign: TextAlign.center,
-        text: TextSpan(
-          text: title,
-          style: TextStyle(
-            fontSize: 24,
-            color: Theme.of(context).textTheme.bodyLarge?.color,
-          ),
-          children: <TextSpan>[
-            TextSpan(
-              text: subtitle,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).textTheme.bodyLarge?.color,
-              ),
-            ),
-            TextSpan(
-              text: details,
-              style: TextStyle(
-                fontSize: 20,
-                fontStyle: FontStyle.italic,
-                color: Theme.of(context).textTheme.bodyLarge?.color,
-              ),
-            ),
-          ],
         ),
       ),
     );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+// import 'package:person_info_site/pages/finalHomePage/final_home_page.dart';
 import 'package:person_info_site/pages/homePage/home_page.dart';
+import 'package:provider/provider.dart';
+// import 'package:person_info_site/pages/homePage/home_page.dart';
 import 'package:person_info_site/theme/dark_theme.dart';
 import 'package:person_info_site/theme/light_theme.dart';
 import 'package:person_info_site/themeProvider/theme_provider.dart';
@@ -23,14 +25,13 @@ class MyApp extends StatelessWidget {
     bool isDarkMode = Provider.of<ThemeProvider>(context).isDarkMode;
 
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Portfolio',
-      theme: lightTheme, // Light theme settings
-      darkTheme: darkTheme, // Dark theme settings
-      themeMode: isDarkMode
-          ? ThemeMode.dark
-          : ThemeMode.light, // Determine theme mode based on global state
-      home: const HomePage(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Portfolio',
+        theme: lightTheme, // Light theme settings
+        darkTheme: darkTheme, // Dark theme settings
+        themeMode: isDarkMode
+            ? ThemeMode.dark
+            : ThemeMode.light, // Determine theme mode based on global state
+        home: const HomePage());
   }
 }

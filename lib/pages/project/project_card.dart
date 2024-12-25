@@ -52,33 +52,28 @@ class ProjectCardState extends State<ProjectCard> {
                   ? [
                       BoxShadow(
                         color: Colors.black.withOpacity(0.5),
-                        blurRadius: 15,
-                        offset: const Offset(0, 10),
+                        blurRadius: 10,
+                        offset: const Offset(0, 8),
                       ),
                     ]
                   : [],
             ),
-            height: 250, // Adjust height to make the card more prominent
-            width: 300, // Fixed width for consistency
+            height: 250, // Fixed consistency
+            width: 300,
             child: Stack(
               children: [
-                // Fade the image on hover and make it cover the container
                 Opacity(
                   opacity: isHovered ? 0.5 : 1.0, // Fade effect on hover
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15),
                     child: Image.asset(
                       widget.imagePath,
-                      fit: BoxFit
-                          .cover, // Ensure the image covers the entire container
-                      width: double
-                          .infinity, // Ensures the image stretches horizontally
-                      height: double
-                          .infinity, // Ensures the image stretches vertically
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      height: double.infinity,
                     ),
                   ),
                 ),
-                // Show the text only on hover
                 AnimatedOpacity(
                   opacity: isHovered ? 1.0 : 0.0, // Text appears on hover
                   duration: const Duration(milliseconds: 300),

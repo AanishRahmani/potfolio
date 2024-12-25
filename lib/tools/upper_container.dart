@@ -77,7 +77,7 @@ class UpperContainer extends StatelessWidget {
             customButton('CONTACT ME', context, () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ContactMePage()),
+                MaterialPageRoute(builder: (context) => const ContactMePage()),
               );
             }),
             const SizedBox(width: 15),

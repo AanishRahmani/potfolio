@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:person_info_site/pages/homePage/ls_home_page_body.dart';
+import 'package:person_info_site/pages/homePage/ss_home_page_body.dart';
 
 class HomePageBody extends StatelessWidget {
   const HomePageBody({super.key});
@@ -6,80 +8,26 @@ class HomePageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Theme.of(context).scaffoldBackgroundColor,
+      color: Theme.of(context)
+          .scaffoldBackgroundColor, // Ensure consistent background color
       child: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Center(
-          // Center the entire content inside the scrollable view
+        child: SingleChildScrollView(
+          // Make the entire body scrollable
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment
-                    .spaceEvenly, // Center text and image horizontally
-                crossAxisAlignment: CrossAxisAlignment
-                    .center, // Center vertically within the row
-                children: [
-                  Expanded(
-                    child: RichText(
-                      text: TextSpan(
-                        text: 'I AM ',
-                        style: DefaultTextStyle.of(context)
-                            .style
-                            .copyWith(fontSize: 40),
-                        children: const <TextSpan>[
-                          TextSpan(
-                              text: 'AANISH RAHMANI \n ',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 40,
-                                  color: Colors.deepPurple)),
-                          TextSpan(
-                              text:
-                                  'I am a Flutter engineer with a strong passion for building cross-platform \n',
-                              style: TextStyle(fontSize: 20)),
-                          TextSpan(
-                              text:
-                                  'mobile applications. Currently pursuing my B.Tech, I am also expanding \n',
-                              style: TextStyle(fontSize: 20)),
-                          TextSpan(
-                            text:
-                                'my skills in machine learning, exploring its potential to create intelligent and data-driven solutions.  ',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
-                          ),
-                          TextSpan(
-                            text:
-                                'I am eager to combine both fields to innovate and develop impactful projects. \n',
-                            style: TextStyle(
-                                fontStyle: FontStyle.italic, fontSize: 20),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 150,
-                  ),
-                  Flexible(
-                    child: Container(
-                      height: 400,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).scaffoldBackgroundColor,
-                      ),
-                      child: Image.asset(
-                        'assets/myself.png',
-                        fit: BoxFit.cover,
-                        color: Theme.of(context)
-                            .scaffoldBackgroundColor
-                            .withOpacity(0.1),
-                        colorBlendMode: BlendMode.darken,
-                      ),
-                    ),
-                  ),
-                ],
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  // Check if the screen is small (width less than 800)
+                  bool isSmallScreen = constraints.maxWidth < 800;
+
+                  // Use the appropriate layout based on screen size
+                  return isSmallScreen
+                      ? const SsHomePageBody() // Small screen layout
+                      : const LsHomePageBody(); // Large screen layout
+                },
               ),
             ],
           ),
