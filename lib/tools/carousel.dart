@@ -15,6 +15,8 @@ class _ImageCarouselState extends State<ImageCarousel> {
   final List<String> images = [
     'assets/flutter.png',
     'assets/ml.png',
+    'assets/advMLcourse.png',
+    'assets/courseCOMPML.png',
   ];
 
   void _goToNextPage() {

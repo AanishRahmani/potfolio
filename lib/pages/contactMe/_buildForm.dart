@@ -9,6 +9,7 @@ class BuildForm extends StatelessWidget {
   final Color labelColor;
 
   const BuildForm({
+    super.key,
     required this.textColor,
     required this.scaffoldBackgroundColor,
     required this.borderColor,

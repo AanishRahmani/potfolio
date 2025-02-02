@@ -6,8 +6,7 @@ class LargeScreenContactMe extends StatelessWidget {
   final Function(bool)? onThemeToggle;
   final bool? isDarkMode;
 
-  const LargeScreenContactMe({Key? key, this.onThemeToggle, this.isDarkMode})
-      : super(key: key);
+  const LargeScreenContactMe({super.key, this.onThemeToggle, this.isDarkMode});
 
   @override
   Widget build(BuildContext context) {

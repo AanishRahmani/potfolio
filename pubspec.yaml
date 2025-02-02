@@ -75,6 +75,9 @@ flutter:
     - assets/git.png
     - assets/python.png
     - assets/go.png
+    - assets/flutter-bird.png
+    - assets/advMLcourse.png
+    - assets/courseCOMPML.png
     
     # - assets/packages/theme_button/assets/animation.json
   #   - images/a_dot_ham.jpeg

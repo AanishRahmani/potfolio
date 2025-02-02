@@ -13,6 +13,7 @@ class BuildTextField extends StatelessWidget {
   final String? Function(String?)? validator;
 
   const BuildTextField({
+    super.key,
     required this.controller,
     required this.label,
     required this.icon,
