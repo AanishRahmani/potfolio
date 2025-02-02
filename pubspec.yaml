@@ -77,6 +77,8 @@ flutter:
     - assets/go.png
     - assets/flutter-bird.png
     - assets/advMLcourse.png
+    - assets/courseCOMPML.png
+    - assets/supabase.png
     - assets/django.png
     - assets/mongodb.png
     - assets/numpy.png
@@ -86,7 +88,13 @@ flutter:
     - assets/pdsql.png
     - assets/linux.png
     - assets/dart.png
-    - assets/supabase.png
+    - assets/blogapp.png
+    - assets/exptracker.jpeg
+    - assets/todoFULLSTACK.png
+    - assets/portfolio.png
+    - assets/todoCLI.png
+    - assets/websocket.png
+    - assets/server.png
 
     
     # - assets/packages/theme_button/assets/animation.json
