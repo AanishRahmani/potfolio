@@ -77,7 +77,17 @@ flutter:
     - assets/go.png
     - assets/flutter-bird.png
     - assets/advMLcourse.png
-    - assets/courseCOMPML.png
+    - assets/django.png
+    - assets/mongodb.png
+    - assets/numpy.png
+    - assets/pandas.png
+    - assets/scikitlearn.png
+    - assets/tensorflow.png
+    - assets/pdsql.png
+    - assets/linux.png
+    - assets/dart.png
+    - assets/supabase.png
+
     
     # - assets/packages/theme_button/assets/animation.json
   #   - images/a_dot_ham.jpeg

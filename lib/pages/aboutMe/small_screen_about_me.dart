@@ -77,7 +77,7 @@ class SmallScreenAboutMe extends StatelessWidget {
 
             // Tech Stack Section
             Text(
-              'MY TECH STACK',
+              'TECHNOLOGIES I USE',
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     color: Colors.deepPurple,
                     fontWeight: FontWeight.bold,

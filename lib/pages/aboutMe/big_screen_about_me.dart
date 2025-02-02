@@ -81,7 +81,7 @@ class BigScreenAboutMe extends StatelessWidget {
                         child: Column(
                           children: [
                             Text(
-                              'MY TECH STACK',
+                              'TECHNOLOGIES I USE',
                               style: Theme.of(context)
                                   .textTheme
                                   .titleLarge
