@@ -58,19 +58,7 @@ class SmallScreenCode extends StatelessWidget {
 
                 // Add more ProjectCards directly
                 SizedBox(height: 20),
-                ProjectCard(
-                  heading: 'Expense Tracker',
-                  imagePath: 'assets/exptracker.jpeg',
-                  githubUrl: 'https://github.com/AanishRahmani/expenseTracker',
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                    'This project is a lightweight expense tracker app\n built using Flutter with SharedPreferences for local \ndata storage. The app helps users efficiently\n manage their daily expenses without requiring\n an internet connection.'),
 
-                // Add more ProjectCards directly
-                SizedBox(height: 20),
                 ProjectCard(
                   heading: 'Portfolio',
                   imagePath: 'assets/portfolio.png',
@@ -80,9 +68,21 @@ class SmallScreenCode extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                    'This project is a responsive portfolio website built\n using Flutter, designed to showcase personal projects\n, skills, and experiences in an interactive and visually\nappealing way.'),
+                    'This project is a responsive portfolio website built\n using Flutter, designed to showcase personal \nprojects, skills, and experiences in an \ninteractive and visually appealing way.'),
                 // Add more ProjectCards directly
                 SizedBox(height: 20),
+                ProjectCard(
+                  heading: 'Expense Tracker',
+                  imagePath: 'assets/exptracker.jpeg',
+                  githubUrl: 'https://github.com/AanishRahmani/expenseTracker',
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                    'This project is a lightweight expense tracker app\n built using Flutter with SharedPreferences for local \ndata storage. The app helps users efficiently\nmanage their daily expenses without requiring\n an internet connection.'),
+                SizedBox(height: 20),
+                // Add more ProjectCards directly
                 ProjectCard(
                   heading: 'TODO CLI',
                   imagePath: 'assets/todoCLI.png',
@@ -92,7 +92,7 @@ class SmallScreenCode extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                    'A To-Do CLI Application is a command-line tool that\nallows users to manage their tasks by performing\nbasic CRUD(Create, Read, Update, Delete) operations,\nenabling them to add new tasks, view existing\nones, update task details,and remove tasks, all\nfrom the terminal.'),
+                    'A To-Do CLI Application is a command-line tool that\nallows users to manage their tasks by performing\nbasic CRUD(Create, Read, Update, Delete)\noperations,enabling them to add new tasks, view \nexisting ones, update task details,and remove\ntasks, all from the terminal.'),
 
                 // Add more ProjectCards directly
                 SizedBox(height: 20),
@@ -106,7 +106,7 @@ class SmallScreenCode extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                    'A TCP Echo Server in Go is a simple network application\nthat accepts incoming client connections over the\nTCP protocol, reads the data sent by the client, and\nsends the same data back as a response (echo).\nUsing Go\'s concurrency features, the server handles\nmultiple connections simultaneously, making it\nefficient and scalable. '),
+                    'A TCP Echo Server in Go is a network application\nthat accepts incoming client connections over the\nTCP protocol, reads the data sent by the client, and\nsends the same data back as a response (echo).\nUsing Go\'s concurrency features, the server handles\nmultiple connections simultaneously, making it\nefficient and scalable. '),
 
                 // Add more ProjectCards directly
                 SizedBox(height: 20),
@@ -120,7 +120,7 @@ class SmallScreenCode extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                    'This WebSocket server in Go supports multiple clients,\nallowing them to maintain an open, persistent connection.\nWhen a client sends a message, the server broadcasts\nit to all other connected clients, enabling real-time\n communication between users.'),
+                    'This WebSocket server in Go supports multiple \nclients, allowing them to maintain an open,\npersistent connection.When a client sends a\nmessage, the server broadcasts it to all other\nconnected clients, enabling real-time communication between users.'),
 
                 // Add more ProjectCards directly
                 SizedBox(height: 20),

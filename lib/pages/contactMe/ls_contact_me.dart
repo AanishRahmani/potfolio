@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:person_info_site/pages/contactMe/_buildForm.dart';
+import 'package:person_info_site/pages/contactMe/contact_image_card.dart';
 import 'package:person_info_site/tools/upper_container.dart';
 
 class LargeScreenContactMe extends StatelessWidget {
@@ -32,7 +33,7 @@ class LargeScreenContactMe extends StatelessWidget {
               onThemeToggle: onThemeToggle ?? (_) {},
               isDarkMode: isDarkMode ?? true,
             ),
-            const SizedBox(height: 100),
+            const SizedBox(height: 15),
             Center(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -63,6 +64,33 @@ class LargeScreenContactMe extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(
+              height: 12,
+            ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ContactImageCard(
+                    imagePath: 'assets/linkedin.png',
+                    url: 'https://www.linkedin.com/in/aanish-rahmani',
+                    heading: 'linkedIn'),
+                SizedBox(
+                  width: 5,
+                ),
+                ContactImageCard(
+                    imagePath: 'assets/github.png',
+                    url: 'https://github.com/AanishRahmani',
+                    heading: 'Github'),
+                SizedBox(
+                  width: 5,
+                ),
+                ContactImageCard(
+                    imagePath: 'assets/drive.png',
+                    url:
+                        'https://drive.google.com/drive/folders/1kDQkXy-NLqR4u9Pi1gmBs9wvraCSOkBf',
+                    heading: 'CV'),
+              ],
+            )
           ],
         ),
       ),

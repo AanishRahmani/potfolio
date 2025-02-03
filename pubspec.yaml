@@ -95,6 +95,9 @@ flutter:
     - assets/todoCLI.png
     - assets/websocket.png
     - assets/server.png
+    - assets/drive.png
+    - assets/github.png
+    - assets/linkedin.png
 
     
     # - assets/packages/theme_button/assets/animation.json
